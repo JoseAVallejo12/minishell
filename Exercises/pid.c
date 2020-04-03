@@ -12,7 +12,7 @@ int main(void)
 
 	my_ppid = getppid();
 	my_pid = getpid();
-	printf("paren proces id%u\n", my_ppid);
-	printf("chill proces id%u\n", my_pid);
+	printf("paren proces id %u\n", my_ppid);
+	printf("chill proces id %u\n", my_pid);
 	return (0);
 }
