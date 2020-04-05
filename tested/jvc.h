@@ -12,4 +12,5 @@
 char *_getlines(void);
 int _strcmp(char *s1, char *s2);
 char **_strtok(char *argv);
+int _execev(char **argvs);
 #endif
