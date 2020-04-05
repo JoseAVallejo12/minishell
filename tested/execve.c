@@ -7,26 +7,29 @@
  */
 int _execev(char **argvs)
 {
-    printf("\ndatos en argvs funtion execev\n");
     /* print the **argvs for test the code only */
-    while (*(argvs) != NULL)
+/*    while (*(argvs) != NULL)
     {
         printf("%s\n", *(argvs));
         argvs++;
     }
+*/
+/*    char *argv[] = {" ","u","-x","jvc.h",NULL};
 
-   /*
-    char *new_argv = _getlines();
-    *char *argv[] = {" ","u","-x","jvc.h",NULL};
-    char *filename = "/bin/chmod";
-    }
-
-    printf("Before execve\n");
-    if (execve(filename, argv, NULL) == -1)
+*/
+ /*   char *path = "/bin/";
+    char *buf = (char *)malloc(sizeof(char) * strlen(argvs[0]) + 6);
+    char *buf2 = (char *)malloc(sizeof(char) * 64);
+    getcwd(buf2, 64);
+    _strcat(buf, path);
+    _strcat(buf, argvs[0]);
+    printf("Buffer %s$", buf); */
+    if (execve(argvs[0], argvs, NULL) == -1)
     {
         perror("Error:");
     }
-    printf("After execve\n");*/
+    printf("After execve\n");
+	/*free(buf);*/
 
     return (0);
 }

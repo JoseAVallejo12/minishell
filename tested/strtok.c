@@ -1,5 +1,11 @@
 #include "jvc.h"
 #define BUF_SIZE 1024
+
+char  *filter(char *word)
+{
+    char *new_word = (char *)malloc(sizeof(char) * strlen(word));
+    return (_strcat(new_word, word));
+}
 /**
  *
  */
@@ -15,14 +21,15 @@ char **_strtok(char *argv)
     if (words == NULL)
         return (NULL);
     strtok(word_line, delimt);
-
     while(word_line != NULL)
     {
-        words[i] = word_line;
-        printf("\narg %d %s", i, words[i]);
+        words[i] = filter(word_line);
+        printf("len words %lu", strlen(words[i]));
         i++;
         word_line = strtok (NULL, delimt);
     }
+    free(word_line);
+    word_line = NULL;
     words[i] = NULL;
     return (words);
 }
