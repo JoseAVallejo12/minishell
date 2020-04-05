@@ -25,11 +25,10 @@ int _execev(char **argvs)
     if (execve(buf, argvs, NULL) == -1)
     {
         perror("Error:");
-        return (-1);
+        exit(EXIT_FAILURE);
     }
-    printf("After execve\n");
 	/*free(buf);*/
 
-    return (0);
+    exit(EXIT_SUCCESS);
 }
 
