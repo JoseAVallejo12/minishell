@@ -24,7 +24,6 @@ char **_strtok(char *argv)
     while(word_line != NULL)
     {
         words[i] = filter(word_line);
-        printf("len words %lu", strlen(words[i]));
         i++;
         word_line = strtok (NULL, delimt);
     }
