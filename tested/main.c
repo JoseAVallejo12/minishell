@@ -4,7 +4,7 @@ int main ()
 {
     int status = 0;
 
-    do {
+    while (status == 0) {
 
         /* get the input the command line */
         char *argv = _getlines();
@@ -12,14 +12,7 @@ int main ()
         char **split_argv = _strtok(argv);
         status = _execev(split_argv);
 
-    } while (status != EOF);
-/*
-    while (*(split_argv) != NULL)
-    {
-        aux = *split_argv;
-        free(aux);
-        split_argv++;
     }
-*/
+
     return 0;
 }

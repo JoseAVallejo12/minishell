@@ -1,5 +1,5 @@
 #include "jvc.h"
-#define BUF_SIZE 1024
+#define BUF_SIZE 10
 
 char  *filter(char *word)
 {

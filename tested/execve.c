@@ -7,28 +7,33 @@
  */
 int _execev(char **argvs)
 {
-    /* print the **argvs for test the code only */
-/*    while (*(argvs) != NULL)
-    {
-        printf("%s\n", *(argvs));
-        argvs++;
-    }
-*/
-/*    char *argv[] = {" ","u","-x","jvc.h",NULL};
-
-*/
+    pid_t c_pid, pid;
+    int status;
     char *path = "/bin/";
     char *buf = (char *)malloc(sizeof(char) * strlen(argvs[0]) + 6);
     _strcat(buf, path);
     _strcat(buf, argvs[0]);
-    printf("Buffer %s$", buf);
-    if (execve(buf, argvs, NULL) == -1)
-    {
-        perror("Error:");
-        exit(EXIT_FAILURE);
-    }
-	/*free(buf);*/
 
-    exit(EXIT_SUCCESS);
+    /* forking the process for exce call funtion */
+    c_pid = fork();
+    if (c_pid == 0)
+    {
+        if (execve(buf, argvs, NULL) == -1)
+            perror("Error: execve");
+    }
+    else if (c_pid > 0)
+    {
+        if( (pid = wait(&status)) < 0)
+        {
+            perror("wait");
+            _exit(1);
+        }
+    }
+    else
+    {
+        perror("fork failed");
+        _exit(1);
+    }
+    return (0); //return success
 }
 
