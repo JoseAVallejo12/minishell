@@ -18,3 +18,4 @@ char *_strcat(char *dest, char *src);
 char *_strstr(char *haystack, char *needle);
 char **get_path(char **env);
 #endif
+
